@@ -1,0 +1,19 @@
+.header-container {
+    padding-top: 42px;
+    margin: 0px 20px;
+
+    .header-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+
+        .discover-text {
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .bell-icon {
+            cursor: pointer;
+        }
+    }
+}

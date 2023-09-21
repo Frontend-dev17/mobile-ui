@@ -1,9 +1,10 @@
 import './App.css';
+import HomePage from './Components/Pages/HomePage/HomePage';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      hello
+      <HomePage />
     </div>
   );
 }
