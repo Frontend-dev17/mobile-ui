@@ -1,5 +1,17 @@
+.logo-section {
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+    }
+}
+
 .header-container {
-    padding-top: 42px;
+    padding-top: 22px;
     margin: 0px 20px;
 
     .header-layout {

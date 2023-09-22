@@ -31,20 +31,38 @@
 
     .category-filters {
         display: flex;
-        justify-content: space-between;
         gap: 10px;
         margin: 24px 0 20px 20px;
         overflow-x: auto;
+    }
 
+    .filter-option {
+        background-color: #F2F2F2;
+        height: 38px;
+        padding: 7px 30px 7px 30px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-        .filter-options {
-            height: 38px;
-            padding: 7px 30px 7px 30px;
-            background: black;
-            color: white;
+    .filter-option.selected {
+        background-color: black;
+        color: white;
+    }
+
+    .product-layout {
+        margin: 10px 20px 72px 20px;
+
+        .products-container {
             display: flex;
-            align-items: center;
-            border-radius: 10px;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
     }
+
+
+
+
 }

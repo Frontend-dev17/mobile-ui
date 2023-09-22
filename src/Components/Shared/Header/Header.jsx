@@ -7,15 +7,20 @@ import { ReactComponent as LeftArrow } from "../../../Constant/Svg/LeftArrow.svg
 
 const Header = ({ headerText, showArrow, handleArrow }) => {
     return (
-        <div className='header-container'>
-            <div className="header-layout">
-                {
-                    showArrow && <span onClick={handleArrow}><LeftArrow /></span>
-                }
-                <span className="discover-text">{headerText}</span>
-                <span onClick={() => { }}><BellIcon className="bell-icon" /></span>
+        <>
+            <div className="logo-section">
+                <img src="/Assests/Images/logo.png" alt="logo" className="logo" />
             </div>
-        </div>
+            <div className='header-container'>
+                <div className="header-layout">
+                    {
+                        showArrow && <span onClick={handleArrow}><LeftArrow /></span>
+                    }
+                    <span className="discover-text">{headerText}</span>
+                    <span onClick={() => { }}><BellIcon className="bell-icon" /></span>
+                </div>
+            </div>
+        </>
     )
 }
 

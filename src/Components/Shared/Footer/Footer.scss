@@ -1,0 +1,39 @@
+footer {
+    position: fixed;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    color: black;
+    /* Change the text color to black or the desired color */
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    /* Ensure the footer is above the content */
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-text {
+    font-size: 14px;
+    color: #8D7B7B;
+}
+
+.selected-text {
+    color: black;
+}
