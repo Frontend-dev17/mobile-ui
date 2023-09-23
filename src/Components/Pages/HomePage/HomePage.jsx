@@ -13,16 +13,37 @@ import Footer from "../../Shared/Footer/Footer";
 
 const HomePage = () => {
     const [selectedOption, setSelectedOption] = useState("All")
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredData, setFilteredData] = useState([]);
+
     const handleOptionClick = (option) => {
         setSelectedOption(option);
     };
+
+    const handleSearch = (event) => {
+        const query = event.target.value.toLowerCase();
+
+        // Filter the data based on the search query
+        const filtered = SHOP_DATA.filter((section) => {
+            return section.items.some((item) =>
+                item.name.toLowerCase().includes(query)
+            );
+        });
+
+        // Update the filtered data state
+        setFilteredData(filtered);
+        setSearchQuery(query);
+    };
+
+    console.log(filteredData)
 
     return (
         <div className="home-page-container">
             <Header headerText="Discover" />
             <div className="search-filter-section">
                 <div className="search-container">
-                    <input type="search" placeholder="Search anything" />
+                    <input type="search" placeholder="Search anything" value={searchQuery}
+                        onChange={handleSearch} />
                     <span className="search-icon"><SearchIcon /></span>
                 </div>
                 <span><FilterIcon /></span>

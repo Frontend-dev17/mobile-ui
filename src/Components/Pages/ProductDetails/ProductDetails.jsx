@@ -99,7 +99,7 @@ const ProductDetails = () => {
                     </Link>
                 </span>
             </div>
-
+            {/* <Footer productId={productId} productSize={selectedSize} /> */}
         </div>
     )
 }
