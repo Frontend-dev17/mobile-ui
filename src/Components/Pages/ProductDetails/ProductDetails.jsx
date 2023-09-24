@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
     const [colorChange, setColorChange] = useState(false);
     const [selectedSize, setSelectedSize] = useState('S');
-    const { dispatch } = useContext(CartContext)
+    const { dispatch, cartState } = useContext(CartContext)
 
     const product = SHOP_DATA
         .flatMap((section) => section.items)
@@ -40,10 +40,28 @@ const ProductDetails = () => {
         setSelectedSize(size);
     };
 
+    // const addToCart = () => {
+    //     const productWithQuantity = { ...product, quantity: 1 };
+
+    //     // Dispatch an action to add the product to the cart
+    //     dispatch({ type: 'ADD_TO_CART', payload: productWithQuantity });
+    // };
+
     const addToCart = () => {
-        // Dispatch an action to add the product to the cart
-        dispatch({ type: 'ADD_TO_CART', payload: product });
+        // Check if the product is already in the cart
+        const existingItem = cartState.cartItems.find((item) => item.id === product.id);
+
+        if (existingItem) {
+            // If the product is already in the cart, increase its quantity by 1
+            dispatch({ type: 'INCREASE_QUANTITY', payload: product.id });
+        } else {
+            // If the product is not in the cart, add it with a quantity of 1
+            const productWithQuantity = { ...product, quantity: 1, size: selectedSize };
+            dispatch({ type: 'ADD_TO_CART', payload: productWithQuantity });
+        }
     };
+
+
 
     return (
         <div className="product-details-container">
@@ -94,7 +112,7 @@ const ProductDetails = () => {
                     <div className="price">INR {product.price}</div>
                 </span>
                 <span>
-                    <Link to={`/cart/${productId}/${selectedSize}`} className="link-text">
+                    <Link to={`/cart/${productId}`} className="link-text">
                         <button type="button" className="cart-button" onClick={addToCart}><CartIcon className="cart-icon" />  Add To Cart</button>
                     </Link>
                 </span>

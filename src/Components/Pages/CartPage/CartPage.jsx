@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { CartContext } from "../../../Contexts/CartContext";
 
 const CartPage = () => {
-    const { productId, productSize } = useParams();
+    const { productId } = useParams();
     const navigate = useNavigate()
 
     const { cartState, dispatch } = useContext(CartContext)
@@ -55,6 +55,8 @@ const CartPage = () => {
     // Calculate total including VAT and shipping fee
     total = subTotal + subTotal * vat + shippingFee;
 
+    console.log(cartState.cartItems)
+
     return (
 
         <div className='cart-page-container'>
@@ -74,7 +76,7 @@ const CartPage = () => {
                                         </div>
                                         <div className='details'>
                                             <div className='name'>{item.name}</div>
-                                            <div className='size'>Size: {`${productSize}`} </div>
+                                            <div className='size'>Size {item.size} </div>
                                             <div className='price'>
                                                 <div className="price-amount">INR {item.price}</div>
                                             </div>
